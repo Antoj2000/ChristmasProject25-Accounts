@@ -19,9 +19,8 @@ def get_users():
 @app.get("/api/users/{user_id}")
 def get_user(user_id: int):
     for u in users:
-        if u in users: 
-            if u.user_id == user_id:
-                return u
+        if u.user_id == user_id:
+            return u
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
 
 #Create user
