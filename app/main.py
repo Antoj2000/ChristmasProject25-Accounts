@@ -27,7 +27,7 @@ def commit_or_rollback(db: Session, error_msg: str):
     try:
         db.commit()
     except IntegrityError:
-        db.rollback
+        db.rollback()
 
 @app.get("/health")
 def health():
