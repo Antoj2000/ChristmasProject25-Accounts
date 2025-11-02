@@ -5,7 +5,7 @@ from typing import Annotated, Optional, List
 
 # ---------- Reusable Type aliases -----------
 
-AccountStr = Annotated[str, constr(pattern=r'^A\d{5}$')]
+AccountStr = Annotated[str, StringConstraints(pattern=r'^A\d{5}$')]
 NameStr = Annotated[str, StringConstraints(min_length=2, max_length=50)]
 PasswordStr = Annotated[str, StringConstraints(min_length=8, max_length=20)]
 
