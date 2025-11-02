@@ -33,5 +33,7 @@ class UserRead(BaseModel):
     name: NameStr
     email: EmailStr
     password: PasswordStr
+    range_start: int
+    range_end: int
 
 

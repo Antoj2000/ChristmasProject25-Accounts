@@ -9,11 +9,12 @@ from .schemas import(
     UserCreate, UserRead
 )
 from .models import AccountsDB, Base
+from .utils import assign_number_range
 
 app = FastAPI()
 
 # Uncomment this line to reset DB
-# Base.metadata.drop_all(bind=engine)
+#Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)
 
 def get_db():
@@ -57,8 +58,14 @@ def get_account_by_number(account_no: str, db: Session = Depends(get_db)):
 #Create user
 @app.post("/api/accounts", response_model=UserRead, status_code=status.HTTP_201_CREATED)
 def create_account(account: UserCreate, db: Session = Depends(get_db)):
+    start, end = assign_number_range(db)
+    acc = account.model_dump()
+    acc.update({
+        "range_start": start,
+        "range_end": end,
+    })
     #Check if user already exists 
-    db_account = AccountsDB(**account.model_dump())
+    db_account = AccountsDB(**acc)
     db.add(db_account)
     commit_or_rollback(db, "Account already exists")
     db.refresh(db_account)
