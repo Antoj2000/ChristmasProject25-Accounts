@@ -41,13 +41,14 @@ def list_accounts(db: Session = Depends(get_db)):
     stmt = select(AccountsDB).order_by(AccountsDB.id)
     return db.execute(stmt).scalars().all()
 
-#Get user by id
-#@app.get("/api/users/{user_id}")
-#def get_user(user_id: int):
-    for u in users:
-        if u.user_id == user_id:
-            return u
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+#Get account by account number
+@app.get("/api/accounts/{account_no}", response_model=UserRead)
+def get_account_by_number(account_no: str, db: Session = Depends(get_db)):
+    stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
+    acc = db.execute(stmt).scalar_one_or_none()
+    if not acc:
+        raise HTTPException(status_code=404, detail="Account not found")
+    return acc
 
 #Create user
 @app.post("/api/accounts", response_model=UserRead, status_code=status.HTTP_201_CREATED)
@@ -59,24 +60,31 @@ def create_account(account: UserCreate, db: Session = Depends(get_db)):
     db.refresh(db_account)
     return db_account
     
-#Update existing user
-#@app.put("/api/users/update/{user_id}")
-#def edit_user(user_id: int, edited_user: User): # user id from URL and user object from payload
-    for i, u in enumerate(users): # checks list of users 
-        if u.user_id == user_id: # match ids
-            users[i] = edited_user # replace the old user with the new one
-            return edited_user 
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="user not found") #404 if user doesnt exist 
+#Update existing account
+@app.put("/api/accounts/update/{account_no}", response_model=UserRead)
+def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get_db)):
+    stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
+    acc = db.execute(stmt).scalar_one_or_none()
+    if not acc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found")
+    for key, value in payload.model_dump().items():
+        setattr(acc, key, value)
+    try:
+        db.commit()
+        db.refresh(acc)
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email or Account No already exists")
+    return acc
+    
 
-
-#Delete existing user
-#@app.delete("/api/users/delete/{user_id}", status_code=status.HTTP_204_NO_CONTENT) #if endpoint succeeds return status code 
-#def delete_user(user_id: int): # user ID from URL
-    for u in users: # checks list 
-        if u.user_id == user_id: # match ids 
-            users.remove(u) # remove user
-            return # exits function - this will then return 204 if successful 
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="user not found") #404 if user doesnt exist 
-                
-
-        
+#Delete existing account
+@app.delete("/api/accounts/delete/{account_no}", status_code=status.HTTP_204_NO_CONTENT) #if endpoint succeeds return status code 
+def delete_account(account_no: str, db: Session = Depends(get_db)):
+    stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
+    acc = db.execute(stmt).scalar_one_or_none()
+    if not acc:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found")
+    db.delete(acc)
+    db.commit()
+    
