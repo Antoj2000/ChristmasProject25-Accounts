@@ -15,6 +15,7 @@ class AccountsDB(Base):
 
     range_start: Mapped[int] = mapped_column(Integer, nullable=False)
     range_end: Mapped[int] = mapped_column(Integer, nullable=False)
+    current_con_num: Mapped[int] = mapped_column(Integer, nullable=False)
     
     
 

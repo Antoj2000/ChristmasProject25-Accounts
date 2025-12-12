@@ -7,7 +7,8 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, selectinload
 from .schemas import(
-    UserCreate, UserRead
+    UserCreate, UserRead,
+    ConRead
 )
 from .models import AccountsDB, Base
 from .utils import assign_number_range
@@ -76,6 +77,7 @@ def create_account(account: UserCreate, db: Session = Depends(get_db)):
     acc.update({
         "range_start": start,
         "range_end": end,
+        "current_con_num": start
     })
     #Check if user already exists 
     db_account = AccountsDB(**acc)
@@ -108,7 +110,26 @@ def delete_account(account_no: str, db: Session = Depends(get_db)):
     stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
     acc = db.execute(stmt).scalar_one_or_none()
     if not acc:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found")
+        raise HTTPException(status_code=404, detail="Account not found")
     db.delete(acc)
     db.commit()
+
+
+#Get current consignment number
+@app.get("/api/account/{account_no}/currentConNum", response_model=ConRead)
+def get_current_con_num(account_no: str, db: Session = Depends(get_db)):
+    acc = db.query(AccountsDB).filter(AccountsDB.account_no == account_no).first()
+    if not acc:
+        raise HTTPException(status_code=404, detail="Account not found")
+    return acc
     
+#Increment current con number
+@app.patch("/api/account/{account_no}/incrementConNum", response_model=ConRead)
+def increment_con_num(account_no: str, db: Session = Depends(get_db)):
+    acc = db.query(AccountsDB).with_for_update().filter(AccountsDB.account_no == account_no).first()
+    if not acc:
+        raise HTTPException(status_code=404, detail="Account not found")
+    acc.current_con_num += 1
+    db.commit() 
+    db.refresh(acc)
+    return acc

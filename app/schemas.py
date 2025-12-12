@@ -35,5 +35,11 @@ class UserRead(BaseModel):
     password: PasswordStr
     range_start: int
     range_end: int
+    current_con_num: int
+
+
+class ConRead(BaseModel):
+    account_no: AccountStr
+    current_con_num: int
 
 
