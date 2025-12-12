@@ -7,12 +7,12 @@ install:
 	pip install -r requirements.txt
 
 run:
-	python -m uvicorn $(APP) --host 0.0.0.0 --port 8000 --reload
+	python -m uvicorn $(APP) --host 0.0.0.0 --port 8001 --reload
 
 start: 
-	nohup python -m uvicorn $(APP) --host 0.0.0.0 --port 8000 --reload \
+	nohup python -m uvicorn $(APP) --host 0.0.0.0 --port 8001 --reload \
 	 > .uvicorn.out 2>&1 & echo $$! > $(PID_FILE)
-	@echo "Uvicorn started (PID=$$(cat $(PID_FILE))) on http://localhost:8000" 
+	@echo "Uvicorn started (PID=$$(cat $(PID_FILE))) on http://localhost:8001" 
 	
 
 stop:

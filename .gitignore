@@ -4,3 +4,5 @@ __pycache__/
 venv/
 *.db
 .coverage
+*uvicorn.out
+*uvicorn.pid
