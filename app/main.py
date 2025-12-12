@@ -1,6 +1,7 @@
 # app/main.py
-
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, status, Depends, Response
+from fastapi.middleware.cors import CORSMiddleware
 from .database import SessionLocal, engine
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
@@ -11,11 +12,23 @@ from .schemas import(
 from .models import AccountsDB, Base
 from .utils import assign_number_range
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    Base.metadata.create_all(bind=engine)
+    yield
+
+app = FastAPI(lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # dev-friendly; tighten in prod
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Uncomment this line to reset DB
 #Base.metadata.drop_all(bind=engine)
-Base.metadata.create_all(bind=engine)
+#Base.metadata.create_all(bind=engine)
 
 def get_db():
     db = SessionLocal()
