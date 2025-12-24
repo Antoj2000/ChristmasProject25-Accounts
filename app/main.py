@@ -92,7 +92,7 @@ def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get
     stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
     acc = db.execute(stmt).scalar_one_or_none()
     if not acc:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found")
+        raise HTTPException(status_code=404, detail="Account not found")
     for key, value in payload.model_dump().items():
         setattr(acc, key, value)
     try:
@@ -100,12 +100,12 @@ def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get
         db.refresh(acc)
     except IntegrityError:
         db.rollback()
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email or Account No already exists")
+        raise HTTPException(status_code=400, detail="Email or Account No already exists")
     return acc
     
 
 #Delete existing account
-@app.delete("/api/accounts/delete/{account_no}", status_code=status.HTTP_204_NO_CONTENT) #if endpoint succeeds return status code 
+@app.delete("/api/accounts/delete/{account_no}", status_code=204) #if endpoint succeeds return status code 
 def delete_account(account_no: str, db: Session = Depends(get_db)):
     stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
     acc = db.execute(stmt).scalar_one_or_none()
@@ -116,7 +116,7 @@ def delete_account(account_no: str, db: Session = Depends(get_db)):
 
 
 #Get current consignment number
-@app.get("/api/account/{account_no}/currentConNum", response_model=ConRead)
+@app.get("/api/accounts/{account_no}/currentConNum", response_model=ConRead)
 def get_current_con_num(account_no: str, db: Session = Depends(get_db)):
     acc = db.query(AccountsDB).filter(AccountsDB.account_no == account_no).first()
     if not acc:
@@ -124,7 +124,7 @@ def get_current_con_num(account_no: str, db: Session = Depends(get_db)):
     return acc
     
 #Increment current con number
-@app.patch("/api/account/{account_no}/incrementConNum", response_model=ConRead)
+@app.patch("/api/accounts/{account_no}/incrementConNum", response_model=ConRead)
 def increment_con_num(account_no: str, db: Session = Depends(get_db)):
     acc = db.query(AccountsDB).with_for_update().filter(AccountsDB.account_no == account_no).first()
     if not acc:
