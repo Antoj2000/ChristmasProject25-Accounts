@@ -12,6 +12,7 @@ from .schemas import(
 )
 from .models import AccountsDB, Base
 from .utils import assign_number_range
+from .worker import publish_accounts_created
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -71,7 +72,7 @@ def get_account_by_number(account_no: str, db: Session = Depends(get_db)):
 
 #Create user
 @app.post("/api/accounts", response_model=UserRead, status_code=status.HTTP_201_CREATED)
-def create_account(account: UserCreate, db: Session = Depends(get_db)):
+async def create_account(account: UserCreate, db: Session = Depends(get_db)):
     start, end = assign_number_range(db)
     acc = account.model_dump()
     acc.update({
@@ -84,6 +85,15 @@ def create_account(account: UserCreate, db: Session = Depends(get_db)):
     db.add(db_account)
     commit_or_rollback(db, "Account already exists")
     db.refresh(db_account)
+
+    event = {
+    "account_id": db_account.id,
+    "account_no": db_account.account_no,
+    "email": db_account.email,
+    "password": account.password, 
+    }
+
+    await publish_accounts_created(event)
     return db_account
     
 #Update existing account
