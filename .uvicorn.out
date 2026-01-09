@@ -1,0 +1,709 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\johns\\OneDrive - Atlantic TU\\CICD3\\DPDProject\\LogisticsCICD']
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     Started reloader process [31308] using StatReload
+2026-01-09 20:21:53,179 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:21:53,180 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:21:53,180 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:21:53,181 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:21:53,181 INFO sqlalchemy.engine.Engine [no key 0.00014s] ()
+2026-01-09 20:21:53,186 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [29284]
+INFO:     Waiting for application startup.
+2026-01-09 20:21:53,194 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:21:53,194 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:21:53,194 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:21:53,194 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:21:53,194 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:21:53,195 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:21:53,195 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-01-09 20:21:53,198 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\security.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [29284]
+2026-01-09 20:23:49,885 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:23:49,885 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:23:49,885 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:23:49,886 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:23:49,886 INFO sqlalchemy.engine.Engine [no key 0.00008s] ()
+2026-01-09 20:23:49,893 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [30912]
+INFO:     Waiting for application startup.
+2026-01-09 20:23:49,900 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:23:49,900 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:23:49,900 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:23:49,900 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:23:49,900 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:23:49,901 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:23:49,901 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-01-09 20:23:49,907 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\security.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30912]
+2026-01-09 20:24:05,297 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:24:05,297 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:24:05,297 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:24:05,298 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:24:05,298 INFO sqlalchemy.engine.Engine [no key 0.00010s] ()
+2026-01-09 20:24:05,302 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [12352]
+INFO:     Waiting for application startup.
+2026-01-09 20:24:05,312 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:24:05,312 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:24:05,312 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:24:05,313 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:24:05,313 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:24:05,314 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:24:05,314 INFO sqlalchemy.engine.Engine [no key 0.00011s] ()
+2026-01-09 20:24:05,318 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12352]
+Process SpawnProcess-4:
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    ~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 71, in serve
+    await self._serve(sockets)
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 78, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\config.py", line 438, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1161, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1091, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\johns\OneDrive - Atlantic TU\CICD3\DPDProject\LogisticsCICD\app\main.py", line 16
+    from .security import hash_password, 
+                                         ^
+SyntaxError: trailing comma not allowed without surrounding parentheses
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ 2026-01-09 20:24:58,648 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:24:58,649 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:24:58,649 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:24:58,650 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:24:58,650 INFO sqlalchemy.engine.Engine [no key 0.00012s] ()
+2026-01-09 20:24:58,659 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [27040]
+INFO:     Waiting for application startup.
+2026-01-09 20:24:58,666 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:24:58,666 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:24:58,666 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:24:58,667 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:24:58,667 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:24:58,668 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:24:58,668 INFO sqlalchemy.engine.Engine [no key 0.00010s] ()
+2026-01-09 20:24:58,672 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27040]
+Process SpawnProcess-6:
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    ~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 71, in serve
+    await self._serve(sockets)
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 78, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\config.py", line 438, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1161, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1091, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\johns\OneDrive - Atlantic TU\CICD3\DPDProject\LogisticsCICD\app\main.py", line 16
+    from .security import hash_password, 
+                                         ^
+SyntaxError: trailing comma not allowed without surrounding parentheses
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ Process SpawnProcess-7:
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    ~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 71, in serve
+    await self._serve(sockets)
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\server.py", line 78, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\config.py", line 438, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\johns\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1027, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\johns\OneDrive - Atlantic TU\CICD3\DPDProject\LogisticsCICD\app\main.py", line 16, in <module>
+    from .security import hash_password, get_current_account_claims
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ImportError: cannot import name 'get' from 'app.security' (C:\Users\johns\OneDrive - Atlantic TU\CICD3\DPDProject\LogisticsCICD\app\security.py)
+2026-01-09 20:25:15,896 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:25:15,897 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:25:15,897 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:25:15,897 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:25:15,897 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-01-09 20:25:15,902 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [32480]
+INFO:     Waiting for application startup.
+2026-01-09 20:25:15,912 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:25:15,912 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:25:15,912 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:25:15,913 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:25:15,913 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:25:15,913 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:25:15,913 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-01-09 20:25:15,917 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32480]
+2026-01-09 20:25:58,217 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:25:58,217 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:25:58,217 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:25:58,218 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:25:58,218 INFO sqlalchemy.engine.Engine [no key 0.00008s] ()
+2026-01-09 20:25:58,222 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [31028]
+INFO:     Waiting for application startup.
+2026-01-09 20:25:58,231 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:25:58,231 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:25:58,231 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:25:58,232 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:25:58,232 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:25:58,232 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:25:58,232 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-01-09 20:25:58,236 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [31028]
+2026-01-09 20:26:22,285 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:22,285 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:22,286 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:22,286 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:26:22,286 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-01-09 20:26:22,296 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [15912]
+INFO:     Waiting for application startup.
+2026-01-09 20:26:22,304 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:22,304 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:22,304 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:22,305 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:26:22,305 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:22,306 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:26:22,306 INFO sqlalchemy.engine.Engine [no key 0.00012s] ()
+2026-01-09 20:26:22,311 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15912]
+2026-01-09 20:26:24,988 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:24,988 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:24,988 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:24,989 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:26:24,989 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-01-09 20:26:24,996 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [32828]
+INFO:     Waiting for application startup.
+2026-01-09 20:26:25,003 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:25,003 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:25,003 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:25,004 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:26:25,004 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:25,004 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:26:25,004 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-01-09 20:26:25,008 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32828]
+2026-01-09 20:26:29,857 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:29,857 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:29,857 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:29,858 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:26:29,858 INFO sqlalchemy.engine.Engine [no key 0.00010s] ()
+2026-01-09 20:26:29,863 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [33612]
+INFO:     Waiting for application startup.
+2026-01-09 20:26:29,870 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:29,870 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:29,870 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:29,870 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:26:29,870 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:29,871 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:26:29,871 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-01-09 20:26:29,875 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33612]
+2026-01-09 20:26:41,554 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:41,554 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:41,554 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:41,555 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:26:41,555 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-01-09 20:26:41,561 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [32284]
+INFO:     Waiting for application startup.
+2026-01-09 20:26:41,567 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:26:41,567 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:26:41,567 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:41,567 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:26:41,567 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:26:41,567 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:26:41,568 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-01-09 20:26:41,571 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32284]
+2026-01-09 20:27:28,014 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:27:28,014 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:27:28,014 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:28,015 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:27:28,015 INFO sqlalchemy.engine.Engine [no key 0.00011s] ()
+2026-01-09 20:27:28,019 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [18048]
+INFO:     Waiting for application startup.
+2026-01-09 20:27:28,026 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:27:28,026 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:27:28,026 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:28,027 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:27:28,027 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:28,027 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:27:28,027 INFO sqlalchemy.engine.Engine [no key 0.00008s] ()
+2026-01-09 20:27:28,030 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [18048]
+2026-01-09 20:27:47,100 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:27:47,101 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:27:47,101 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:47,101 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:27:47,101 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-01-09 20:27:47,109 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [21488]
+INFO:     Waiting for application startup.
+2026-01-09 20:27:47,115 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:27:47,115 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:27:47,115 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:47,116 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:27:47,116 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:47,116 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:27:47,116 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-01-09 20:27:47,120 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21488]
+2026-01-09 20:27:48,682 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:27:48,682 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:27:48,682 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:48,682 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 20:27:48,682 INFO sqlalchemy.engine.Engine [no key 0.00018s] ()
+2026-01-09 20:27:48,686 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [31972]
+INFO:     Waiting for application startup.
+2026-01-09 20:27:48,693 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:27:48,694 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:27:48,694 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:48,694 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 20:27:48,694 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:27:48,695 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 20:27:48,695 INFO sqlalchemy.engine.Engine [no key 0.00011s] ()
+2026-01-09 20:27:48,698 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51235 - "PUT /api/accounts/update/A00001 HTTP/1.1" 401 Unauthorized
+2026-01-09 20:28:55,388 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:28:55,392 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 20:28:55,392 INFO sqlalchemy.engine.Engine [generated in 0.00022s] ('A00001',)
+2026-01-09 20:28:55,393 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:51242 - "PUT /api/accounts/update/A00001 HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'app\main.py'. Reloading...
+ INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [31972]
+INFO:     Started server process [32732]
+INFO:     Waiting for application startup.
+2026-01-09 20:29:13,680 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:29:13,680 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 20:29:13,680 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 20:29:13,680 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2026-01-09 20:30:34,518 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:30:34,525 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts ORDER BY accounts.range_end DESC
+ LIMIT ? OFFSET ?
+2026-01-09 20:30:34,525 INFO sqlalchemy.engine.Engine [generated in 0.00065s] (1, 0)
+2026-01-09 20:30:34,639 INFO sqlalchemy.engine.Engine INSERT INTO accounts (account_no, name, email, password_hash, range_start, range_end, current_con_num) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-01-09 20:30:34,639 INFO sqlalchemy.engine.Engine [generated in 0.00044s] ('A00001', 'Anthony', 'test1@test.com', '$argon2id$v=19$m=65536,t=3,p=4$vvpj6Pugqs4hsPqCIp4c9A$ViaQ+LOdGVlVrObFwl/g/Rbqe3dyipDLOcXj0IOwXJY', 1, 500, 1)
+2026-01-09 20:30:34,641 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 20:30:34,645 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:30:34,646 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 20:30:34,646 INFO sqlalchemy.engine.Engine [generated in 0.00039s] (1,)
+2026-01-09 20:30:35,059 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52467 - "POST /api/accounts HTTP/1.1" 201 Created
+2026-01-09 20:30:52,025 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:30:52,026 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 20:30:52,026 INFO sqlalchemy.engine.Engine [generated in 0.00019s] ('A00001',)
+2026-01-09 20:30:52,028 INFO sqlalchemy.engine.Engine UPDATE accounts SET name=?, email=? WHERE accounts.id = ?
+2026-01-09 20:30:52,028 INFO sqlalchemy.engine.Engine [generated in 0.00018s] ('Conor', 'testuser@example.com', 1)
+2026-01-09 20:30:52,031 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 20:30:52,034 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:30:52,035 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 20:30:52,035 INFO sqlalchemy.engine.Engine [cached since 17.39s ago] (1,)
+2026-01-09 20:30:52,038 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52475 - "PUT /api/accounts/update/A00001 HTTP/1.1" 200 OK
+2026-01-09 20:31:32,259 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:31:32,260 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts ORDER BY accounts.range_end DESC
+ LIMIT ? OFFSET ?
+2026-01-09 20:31:32,260 INFO sqlalchemy.engine.Engine [cached since 57.74s ago] (1, 0)
+2026-01-09 20:31:32,343 INFO sqlalchemy.engine.Engine INSERT INTO accounts (account_no, name, email, password_hash, range_start, range_end, current_con_num) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-01-09 20:31:32,343 INFO sqlalchemy.engine.Engine [cached since 57.7s ago] ('A00002', 'Delete', 'test2@test.com', '$argon2id$v=19$m=65536,t=3,p=4$Cz/FdysxCfNxiLvI92DnvA$cBhluCpkQyY9Y0CMgV9kY8FGYx0RCjks7FR0Hb/4edI', 501, 1000, 501)
+2026-01-09 20:31:32,347 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 20:31:32,351 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:31:32,352 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 20:31:32,352 INFO sqlalchemy.engine.Engine [cached since 57.71s ago] (2,)
+2026-01-09 20:31:32,884 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52486 - "POST /api/accounts HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56004 - "DELETE /api/accounts/delete/A00002 HTTP/1.1" 401 Unauthorized
+2026-01-09 20:32:45,302 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:32:45,302 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 20:32:45,303 INFO sqlalchemy.engine.Engine [cached since 113.3s ago] ('A00002',)
+2026-01-09 20:32:45,304 INFO sqlalchemy.engine.Engine DELETE FROM accounts WHERE accounts.id = ?
+2026-01-09 20:32:45,304 INFO sqlalchemy.engine.Engine [generated in 0.00014s] (2,)
+2026-01-09 20:32:45,308 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:56008 - "DELETE /api/accounts/delete/A00002 HTTP/1.1" 204 No Content

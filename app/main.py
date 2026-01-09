@@ -13,7 +13,7 @@ from .schemas import(
 from .models import AccountsDB, Base
 from .utils import assign_number_range
 from .worker import publish_accounts_created
-from .security import hash_password
+from .security import hash_password, get_current_account_claims
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -30,7 +30,7 @@ app.add_middleware(
 )
 
 # Uncomment this line to reset DB
-Base.metadata.drop_all(bind=engine)
+#Base.metadata.drop_all(bind=engine)
 #Base.metadata.create_all(bind=engine)
 
 def get_db():
@@ -101,11 +101,16 @@ async def create_account(account: UserCreate, db: Session = Depends(get_db)):
     
 #Update existing account
 @app.put("/api/accounts/update/{account_no}", response_model=UserRead)
-def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get_db)):
+def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get_db), claims: dict = Depends(get_current_account_claims)):
+    token_account_no = claims.get("account_no")
+    if not token_account_no or token_account_no != account_no:
+        raise HTTPException(status_code=403, detail="Token not valid for this account")
+
     stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
     acc = db.execute(stmt).scalar_one_or_none()
     if not acc:
         raise HTTPException(status_code=404, detail="Account not found")
+    
     for key, value in payload.model_dump().items():
         setattr(acc, key, value)
     try:
@@ -119,7 +124,11 @@ def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get
 
 #Delete existing account
 @app.delete("/api/accounts/delete/{account_no}", status_code=204) #if endpoint succeeds return status code 
-def delete_account(account_no: str, db: Session = Depends(get_db)):
+def delete_account(account_no: str, db: Session = Depends(get_db), claims: dict = Depends(get_current_account_claims)):
+    token_account_no = claims.get("account_no")
+    if not token_account_no or token_account_no != account_no:
+        raise HTTPException(status_code=403, detail="Token not valid for this account")
+    
     stmt = select(AccountsDB).where(AccountsDB.account_no==account_no)
     acc = db.execute(stmt).scalar_one_or_none()
     if not acc:
