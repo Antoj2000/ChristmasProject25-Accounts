@@ -13,6 +13,7 @@ from .schemas import(
 from .models import AccountsDB, Base
 from .utils import assign_number_range
 from .worker import publish_accounts_created
+from .security import hash_password
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -29,7 +30,7 @@ app.add_middleware(
 )
 
 # Uncomment this line to reset DB
-#Base.metadata.drop_all(bind=engine)
+Base.metadata.drop_all(bind=engine)
 #Base.metadata.create_all(bind=engine)
 
 def get_db():
@@ -75,6 +76,8 @@ def get_account_by_number(account_no: str, db: Session = Depends(get_db)):
 async def create_account(account: UserCreate, db: Session = Depends(get_db)):
     start, end = assign_number_range(db)
     acc = account.model_dump()
+    plain = acc.pop("password")            
+    acc["password_hash"] = hash_password(plain) 
     acc.update({
         "range_start": start,
         "range_end": end,
@@ -90,7 +93,7 @@ async def create_account(account: UserCreate, db: Session = Depends(get_db)):
     "account_id": db_account.id,
     "account_no": db_account.account_no,
     "email": db_account.email,
-    "password": account.password, 
+    "password_hash": db_account.password_hash, 
     }
 
     await publish_accounts_created(event)
