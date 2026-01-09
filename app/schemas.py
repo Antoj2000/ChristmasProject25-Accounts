@@ -32,7 +32,6 @@ class UserRead(BaseModel):
     account_no: AccountStr
     name: NameStr
     email: EmailStr
-    password: PasswordStr
     range_start: int
     range_end: int
     current_con_num: int

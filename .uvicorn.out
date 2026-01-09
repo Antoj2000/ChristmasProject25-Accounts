@@ -1,40 +1,554 @@
 INFO:     Will watch for changes in these directories: ['C:\\Users\\johns\\OneDrive - Atlantic TU\\CICD3\\DPDProject\\LogisticsCICD']
 INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
-INFO:     Started reloader process [126204] using StatReload
-INFO:     Started server process [131928]
+INFO:     Started reloader process [24344] using StatReload
+2026-01-09 16:59:00,805 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 16:59:00,806 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 16:59:00,806 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 16:59:00,806 INFO sqlalchemy.engine.Engine 
+DROP TABLE accounts
+2026-01-09 16:59:00,807 INFO sqlalchemy.engine.Engine [no key 0.00010s] ()
+2026-01-09 16:59:00,810 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [28420]
 INFO:     Waiting for application startup.
-2026-01-08 00:23:09,495 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2026-01-08 00:23:09,495 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
-2026-01-08 00:23:09,496 INFO sqlalchemy.engine.Engine [raw sql] ()
-2026-01-08 00:23:09,496 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 16:59:00,818 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 16:59:00,818 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("accounts")
+2026-01-09 16:59:00,818 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 16:59:00,819 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("accounts")
+2026-01-09 16:59:00,819 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-01-09 16:59:00,819 INFO sqlalchemy.engine.Engine 
+CREATE TABLE accounts (
+	id INTEGER NOT NULL, 
+	account_no VARCHAR(6) NOT NULL, 
+	name VARCHAR(50) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	range_start INTEGER NOT NULL, 
+	range_end INTEGER NOT NULL, 
+	current_con_num INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (account_no), 
+	UNIQUE (email)
+)
+
+
+2026-01-09 16:59:00,819 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-01-09 16:59:00,823 INFO sqlalchemy.engine.Engine COMMIT
 INFO:     Application startup complete.
-2026-01-08 00:26:10,536 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2026-01-08 00:26:10,546 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password AS accounts_password, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+2026-01-09 17:01:45,383 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:01:45,386 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
 FROM accounts ORDER BY accounts.range_end DESC
  LIMIT ? OFFSET ?
-2026-01-08 00:26:10,546 INFO sqlalchemy.engine.Engine [generated in 0.00075s] (1, 0)
-2026-01-08 00:26:10,560 INFO sqlalchemy.engine.Engine INSERT INTO accounts (account_no, name, email, password, range_start, range_end, current_con_num) VALUES (?, ?, ?, ?, ?, ?, ?)
-2026-01-08 00:26:10,560 INFO sqlalchemy.engine.Engine [generated in 0.00038s] ('A05966', 'Anthony', 'auth9@auth.com', 'Password123!', 5501, 6000, 5501)
-2026-01-08 00:26:10,563 INFO sqlalchemy.engine.Engine COMMIT
-2026-01-08 00:26:10,569 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2026-01-08 00:26:10,571 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password, accounts.range_start, accounts.range_end, accounts.current_con_num 
+2026-01-09 17:01:45,386 INFO sqlalchemy.engine.Engine [generated in 0.00028s] (1, 0)
+2026-01-09 17:01:45,468 INFO sqlalchemy.engine.Engine INSERT INTO accounts (account_no, name, email, password_hash, range_start, range_end, current_con_num) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-01-09 17:01:45,468 INFO sqlalchemy.engine.Engine [generated in 0.00031s] ('A00001', 'Anthony', 'test1@test.com', '$argon2id$v=19$m=65536,t=3,p=4$KC7onSb1cZ0ooFpH724Nhw$BJ7mSN//Ep2yyyWDpdqlBUKBJBUnAQgOVIJENIKHEsY', 1, 500, 1)
+2026-01-09 17:01:45,470 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:01:45,474 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:01:45,475 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
 FROM accounts 
 WHERE accounts.id = ?
-2026-01-08 00:26:10,571 INFO sqlalchemy.engine.Engine [generated in 0.00033s] (12,)
-2026-01-08 00:26:10,875 INFO sqlalchemy.engine.Engine ROLLBACK
-INFO:     127.0.0.1:54238 - "POST /api/accounts HTTP/1.1" 201 Created
-2026-01-08 00:27:52,919 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2026-01-08 00:27:52,923 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password AS accounts_password, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
-FROM accounts ORDER BY accounts.range_end DESC
+2026-01-09 17:01:45,475 INFO sqlalchemy.engine.Engine [generated in 0.00018s] (1,)
+2026-01-09 17:01:45,806 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55612 - "POST /api/accounts HTTP/1.1" 201 Created
+2026-01-09 17:21:48,631 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:21:48,651 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:21:48,651 INFO sqlalchemy.engine.Engine [generated in 0.00116s] ('A00001',)
+2026-01-09 17:21:48,661 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64769 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:21:49,370 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:21:49,372 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
  LIMIT ? OFFSET ?
-2026-01-08 00:27:52,923 INFO sqlalchemy.engine.Engine [cached since 102.4s ago] (1, 0)
-2026-01-08 00:27:52,935 INFO sqlalchemy.engine.Engine INSERT INTO accounts (account_no, name, email, password, range_start, range_end, current_con_num) VALUES (?, ?, ?, ?, ?, ?, ?)
-2026-01-08 00:27:52,935 INFO sqlalchemy.engine.Engine [cached since 102.4s ago] ('A05996', 'Anthony', 'auth10@auth.com', 'Password123!', 6001, 6500, 6001)
-2026-01-08 00:27:52,937 INFO sqlalchemy.engine.Engine COMMIT
-2026-01-08 00:27:52,943 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2026-01-08 00:27:52,944 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password, accounts.range_start, accounts.range_end, accounts.current_con_num 
+2026-01-09 17:21:49,372 INFO sqlalchemy.engine.Engine [generated in 0.00030s] ('A00001', 1, 0)
+2026-01-09 17:21:49,376 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64771 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:21:49,380 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:21:49,382 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:21:49,382 INFO sqlalchemy.engine.Engine [generated in 0.00017s] ('A00001', 1, 0)
+2026-01-09 17:21:49,392 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:21:49,393 INFO sqlalchemy.engine.Engine [generated in 0.00024s] (2, 1)
+2026-01-09 17:21:49,395 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:21:49,399 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:21:49,400 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
 FROM accounts 
 WHERE accounts.id = ?
-2026-01-08 00:27:52,944 INFO sqlalchemy.engine.Engine [cached since 102.4s ago] (13,)
-2026-01-08 00:27:53,239 INFO sqlalchemy.engine.Engine ROLLBACK
-INFO:     127.0.0.1:62014 - "POST /api/accounts HTTP/1.1" 201 Created
+2026-01-09 17:21:49,400 INFO sqlalchemy.engine.Engine [cached since 1204s ago] (1,)
+2026-01-09 17:21:49,402 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64771 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:33:04,335 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:04,337 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:33:04,337 INFO sqlalchemy.engine.Engine [cached since 675.7s ago] ('A00001',)
+2026-01-09 17:33:04,344 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57284 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:33:05,037 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:05,037 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:33:05,038 INFO sqlalchemy.engine.Engine [cached since 675.7s ago] ('A00001', 1, 0)
+2026-01-09 17:33:05,040 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57286 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:33:05,044 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:05,045 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:33:05,045 INFO sqlalchemy.engine.Engine [cached since 675.7s ago] ('A00001', 1, 0)
+2026-01-09 17:33:05,047 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:33:05,048 INFO sqlalchemy.engine.Engine [cached since 675.7s ago] (3, 1)
+2026-01-09 17:33:05,049 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:33:05,053 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:05,053 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:33:05,053 INFO sqlalchemy.engine.Engine [cached since 1880s ago] (1,)
+2026-01-09 17:33:05,054 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57286 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:33:55,174 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:55,175 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:33:55,175 INFO sqlalchemy.engine.Engine [cached since 726.5s ago] ('A00001',)
+2026-01-09 17:33:55,177 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57303 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:33:55,853 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:55,854 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:33:55,854 INFO sqlalchemy.engine.Engine [cached since 726.5s ago] ('A00001', 1, 0)
+2026-01-09 17:33:55,855 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57305 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:33:55,859 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:55,859 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:33:55,859 INFO sqlalchemy.engine.Engine [cached since 726.5s ago] ('A00001', 1, 0)
+2026-01-09 17:33:55,860 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:33:55,860 INFO sqlalchemy.engine.Engine [cached since 726.5s ago] (4, 1)
+2026-01-09 17:33:55,870 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:33:55,873 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:33:55,873 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:33:55,873 INFO sqlalchemy.engine.Engine [cached since 1930s ago] (1,)
+2026-01-09 17:33:55,874 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57305 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:35:41,678 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:35:41,679 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:35:41,679 INFO sqlalchemy.engine.Engine [cached since 833s ago] ('A00001',)
+2026-01-09 17:35:41,680 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55980 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:35:42,364 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:35:42,365 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:35:42,365 INFO sqlalchemy.engine.Engine [cached since 833s ago] ('A00001', 1, 0)
+2026-01-09 17:35:42,366 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55982 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:35:42,368 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:35:42,369 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:35:42,369 INFO sqlalchemy.engine.Engine [cached since 833s ago] ('A00001', 1, 0)
+2026-01-09 17:35:42,370 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:35:42,370 INFO sqlalchemy.engine.Engine [cached since 833s ago] (5, 1)
+2026-01-09 17:35:42,371 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:35:42,375 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:35:42,376 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:35:42,376 INFO sqlalchemy.engine.Engine [cached since 2037s ago] (1,)
+2026-01-09 17:35:42,377 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55982 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:36:05,132 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:05,133 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:36:05,133 INFO sqlalchemy.engine.Engine [cached since 856.5s ago] ('A00001',)
+2026-01-09 17:36:05,135 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:56000 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:36:05,913 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:05,913 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:36:05,914 INFO sqlalchemy.engine.Engine [cached since 856.5s ago] ('A00001', 1, 0)
+2026-01-09 17:36:05,915 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:56002 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:36:05,925 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:05,926 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:36:05,926 INFO sqlalchemy.engine.Engine [cached since 856.5s ago] ('A00001', 1, 0)
+2026-01-09 17:36:05,927 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:36:05,927 INFO sqlalchemy.engine.Engine [cached since 856.5s ago] (6, 1)
+2026-01-09 17:36:05,928 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:36:05,932 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:05,933 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:36:05,933 INFO sqlalchemy.engine.Engine [cached since 2060s ago] (1,)
+2026-01-09 17:36:05,934 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:56002 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:36:32,120 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:32,120 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:36:32,120 INFO sqlalchemy.engine.Engine [cached since 883.5s ago] ('A00001',)
+2026-01-09 17:36:32,122 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50639 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:36:32,795 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:32,795 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:36:32,795 INFO sqlalchemy.engine.Engine [cached since 883.4s ago] ('A00001', 1, 0)
+2026-01-09 17:36:32,797 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50641 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:36:32,803 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:32,804 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:36:32,804 INFO sqlalchemy.engine.Engine [cached since 883.4s ago] ('A00001', 1, 0)
+2026-01-09 17:36:32,804 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:36:32,804 INFO sqlalchemy.engine.Engine [cached since 883.4s ago] (7, 1)
+2026-01-09 17:36:32,814 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:36:32,819 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:36:32,819 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:36:32,819 INFO sqlalchemy.engine.Engine [cached since 2087s ago] (1,)
+2026-01-09 17:36:32,820 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50641 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:37:06,988 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:37:06,989 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:37:06,989 INFO sqlalchemy.engine.Engine [cached since 918.3s ago] ('A00001',)
+2026-01-09 17:37:06,991 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54309 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:37:07,672 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:37:07,673 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:37:07,673 INFO sqlalchemy.engine.Engine [cached since 918.3s ago] ('A00001', 1, 0)
+2026-01-09 17:37:07,674 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54311 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:37:07,685 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:37:07,686 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:37:07,686 INFO sqlalchemy.engine.Engine [cached since 918.3s ago] ('A00001', 1, 0)
+2026-01-09 17:37:07,687 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:37:07,687 INFO sqlalchemy.engine.Engine [cached since 918.3s ago] (8, 1)
+2026-01-09 17:37:07,688 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:37:07,690 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:37:07,690 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:37:07,690 INFO sqlalchemy.engine.Engine [cached since 2122s ago] (1,)
+2026-01-09 17:37:07,691 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54311 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:40:50,551 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:40:50,551 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:40:50,551 INFO sqlalchemy.engine.Engine [cached since 1142s ago] ('A00001',)
+2026-01-09 17:40:50,553 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52260 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:40:51,227 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:40:51,228 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:40:51,228 INFO sqlalchemy.engine.Engine [cached since 1142s ago] ('A00001', 1, 0)
+2026-01-09 17:40:51,229 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52262 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:40:51,240 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:40:51,240 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:40:51,240 INFO sqlalchemy.engine.Engine [cached since 1142s ago] ('A00001', 1, 0)
+2026-01-09 17:40:51,241 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:40:51,241 INFO sqlalchemy.engine.Engine [cached since 1142s ago] (9, 1)
+2026-01-09 17:40:51,243 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:40:51,246 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:40:51,246 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:40:51,246 INFO sqlalchemy.engine.Engine [cached since 2346s ago] (1,)
+2026-01-09 17:40:51,247 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52262 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:42:11,217 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:11,218 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:42:11,218 INFO sqlalchemy.engine.Engine [cached since 1223s ago] ('A00001',)
+2026-01-09 17:42:11,219 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52295 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:42:11,910 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:11,911 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:42:11,911 INFO sqlalchemy.engine.Engine [cached since 1223s ago] ('A00001', 1, 0)
+2026-01-09 17:42:11,913 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52301 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:42:11,918 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:11,919 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:42:11,919 INFO sqlalchemy.engine.Engine [cached since 1223s ago] ('A00001', 1, 0)
+2026-01-09 17:42:11,921 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:42:11,921 INFO sqlalchemy.engine.Engine [cached since 1223s ago] (10, 1)
+2026-01-09 17:42:11,929 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:42:11,934 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:11,935 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:42:11,935 INFO sqlalchemy.engine.Engine [cached since 2426s ago] (1,)
+2026-01-09 17:42:11,938 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52301 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:42:33,439 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:33,439 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:42:33,439 INFO sqlalchemy.engine.Engine [cached since 1245s ago] ('A00001',)
+2026-01-09 17:42:33,440 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52318 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:42:34,081 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:34,081 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:42:34,081 INFO sqlalchemy.engine.Engine [cached since 1245s ago] ('A00001', 1, 0)
+2026-01-09 17:42:34,083 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52320 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:42:34,090 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:34,090 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:42:34,090 INFO sqlalchemy.engine.Engine [cached since 1245s ago] ('A00001', 1, 0)
+2026-01-09 17:42:34,091 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:42:34,091 INFO sqlalchemy.engine.Engine [cached since 1245s ago] (11, 1)
+2026-01-09 17:42:34,100 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:42:34,105 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:34,105 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:42:34,105 INFO sqlalchemy.engine.Engine [cached since 2449s ago] (1,)
+2026-01-09 17:42:34,107 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52320 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:42:58,003 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:58,003 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:42:58,003 INFO sqlalchemy.engine.Engine [cached since 1269s ago] ('A00001',)
+2026-01-09 17:42:58,006 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52333 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:42:58,692 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:58,693 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:42:58,693 INFO sqlalchemy.engine.Engine [cached since 1269s ago] ('A00001', 1, 0)
+2026-01-09 17:42:58,695 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52335 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:42:58,698 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:58,698 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:42:58,698 INFO sqlalchemy.engine.Engine [cached since 1269s ago] ('A00001', 1, 0)
+2026-01-09 17:42:58,699 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:42:58,699 INFO sqlalchemy.engine.Engine [cached since 1269s ago] (12, 1)
+2026-01-09 17:42:58,708 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:42:58,712 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:42:58,712 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:42:58,712 INFO sqlalchemy.engine.Engine [cached since 2473s ago] (1,)
+2026-01-09 17:42:58,713 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52335 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:43:33,338 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:43:33,338 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:43:33,339 INFO sqlalchemy.engine.Engine [cached since 1305s ago] ('A00001',)
+2026-01-09 17:43:33,341 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52346 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:43:33,979 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:43:33,980 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:43:33,980 INFO sqlalchemy.engine.Engine [cached since 1305s ago] ('A00001', 1, 0)
+2026-01-09 17:43:33,981 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52348 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:43:33,984 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:43:33,984 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:43:33,984 INFO sqlalchemy.engine.Engine [cached since 1305s ago] ('A00001', 1, 0)
+2026-01-09 17:43:33,985 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:43:33,985 INFO sqlalchemy.engine.Engine [cached since 1305s ago] (13, 1)
+2026-01-09 17:43:33,993 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:43:33,996 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:43:33,997 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:43:33,997 INFO sqlalchemy.engine.Engine [cached since 2509s ago] (1,)
+2026-01-09 17:43:33,998 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52348 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:44:16,636 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:16,637 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:44:16,637 INFO sqlalchemy.engine.Engine [cached since 1348s ago] ('A00001',)
+2026-01-09 17:44:16,638 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52364 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:44:17,327 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:17,328 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:44:17,328 INFO sqlalchemy.engine.Engine [cached since 1348s ago] ('A00001', 1, 0)
+2026-01-09 17:44:17,330 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52366 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:44:17,333 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:17,333 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:44:17,333 INFO sqlalchemy.engine.Engine [cached since 1348s ago] ('A00001', 1, 0)
+2026-01-09 17:44:17,334 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:44:17,334 INFO sqlalchemy.engine.Engine [cached since 1348s ago] (14, 1)
+2026-01-09 17:44:17,336 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:44:17,340 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:17,340 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:44:17,340 INFO sqlalchemy.engine.Engine [cached since 2552s ago] (1,)
+2026-01-09 17:44:17,342 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52366 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:44:34,666 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:34,667 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:44:34,667 INFO sqlalchemy.engine.Engine [cached since 1366s ago] ('A00001',)
+2026-01-09 17:44:34,668 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52377 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:44:35,369 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:35,370 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:44:35,370 INFO sqlalchemy.engine.Engine [cached since 1366s ago] ('A00001', 1, 0)
+2026-01-09 17:44:35,371 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52379 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:44:35,376 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:35,377 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:44:35,377 INFO sqlalchemy.engine.Engine [cached since 1366s ago] ('A00001', 1, 0)
+2026-01-09 17:44:35,378 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:44:35,378 INFO sqlalchemy.engine.Engine [cached since 1366s ago] (15, 1)
+2026-01-09 17:44:35,380 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:44:35,386 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:35,386 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:44:35,386 INFO sqlalchemy.engine.Engine [cached since 2570s ago] (1,)
+2026-01-09 17:44:35,389 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52379 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:44:55,247 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:55,247 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:44:55,247 INFO sqlalchemy.engine.Engine [cached since 1387s ago] ('A00001',)
+2026-01-09 17:44:55,249 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59998 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:44:55,938 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:55,939 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:44:55,939 INFO sqlalchemy.engine.Engine [cached since 1387s ago] ('A00001', 1, 0)
+2026-01-09 17:44:55,941 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:60000 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:44:55,946 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:55,946 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:44:55,946 INFO sqlalchemy.engine.Engine [cached since 1387s ago] ('A00001', 1, 0)
+2026-01-09 17:44:55,947 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:44:55,947 INFO sqlalchemy.engine.Engine [cached since 1387s ago] (16, 1)
+2026-01-09 17:44:55,949 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:44:55,953 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:44:55,953 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:44:55,953 INFO sqlalchemy.engine.Engine [cached since 2590s ago] (1,)
+2026-01-09 17:44:55,955 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:60000 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 17:45:17,218 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:45:17,218 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 17:45:17,218 INFO sqlalchemy.engine.Engine [cached since 1409s ago] ('A00001',)
+2026-01-09 17:45:17,220 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:60015 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
+2026-01-09 17:45:17,830 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:45:17,830 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:45:17,831 INFO sqlalchemy.engine.Engine [cached since 1408s ago] ('A00001', 1, 0)
+2026-01-09 17:45:17,831 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:60017 - "GET /api/accounts/A00001/currentConNum HTTP/1.1" 200 OK
+2026-01-09 17:45:17,834 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:45:17,834 INFO sqlalchemy.engine.Engine SELECT accounts.id AS accounts_id, accounts.account_no AS accounts_account_no, accounts.name AS accounts_name, accounts.email AS accounts_email, accounts.password_hash AS accounts_password_hash, accounts.range_start AS accounts_range_start, accounts.range_end AS accounts_range_end, accounts.current_con_num AS accounts_current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+ LIMIT ? OFFSET ?
+2026-01-09 17:45:17,834 INFO sqlalchemy.engine.Engine [cached since 1408s ago] ('A00001', 1, 0)
+2026-01-09 17:45:17,834 INFO sqlalchemy.engine.Engine UPDATE accounts SET current_con_num=? WHERE accounts.id = ?
+2026-01-09 17:45:17,834 INFO sqlalchemy.engine.Engine [cached since 1408s ago] (17, 1)
+2026-01-09 17:45:17,838 INFO sqlalchemy.engine.Engine COMMIT
+2026-01-09 17:45:17,842 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 17:45:17,842 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.id = ?
+2026-01-09 17:45:17,843 INFO sqlalchemy.engine.Engine [cached since 2612s ago] (1,)
+2026-01-09 17:45:17,844 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:60017 - "PATCH /api/accounts/A00001/incrementConNum HTTP/1.1" 200 OK
+2026-01-09 20:12:57,972 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-01-09 20:12:57,974 INFO sqlalchemy.engine.Engine SELECT accounts.id, accounts.account_no, accounts.name, accounts.email, accounts.password_hash, accounts.range_start, accounts.range_end, accounts.current_con_num 
+FROM accounts 
+WHERE accounts.account_no = ?
+2026-01-09 20:12:57,974 INFO sqlalchemy.engine.Engine [cached since 1.027e+04s ago] ('A00001',)
+2026-01-09 20:12:57,979 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:65311 - "GET /api/accounts/A00001 HTTP/1.1" 200 OK
