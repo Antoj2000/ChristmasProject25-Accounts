@@ -12,7 +12,7 @@ from .schemas import(
 )
 from .models import AccountsDB, Base
 from .utils import assign_number_range
-from .worker import publish_accounts_created
+from .worker import publish_accounts_created, publish_accounts_deleted
 from .security import hash_password, get_current_account_claims
 
 @asynccontextmanager
@@ -124,7 +124,7 @@ def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get
 
 #Delete existing account
 @app.delete("/api/accounts/delete/{account_no}", status_code=204) #if endpoint succeeds return status code 
-def delete_account(account_no: str, db: Session = Depends(get_db), claims: dict = Depends(get_current_account_claims)):
+async def delete_account(account_no: str, db: Session = Depends(get_db), claims: dict = Depends(get_current_account_claims)):
     token_account_no = claims.get("account_no")
     if not token_account_no or token_account_no != account_no:
         raise HTTPException(status_code=403, detail="Token not valid for this account")
@@ -135,6 +135,12 @@ def delete_account(account_no: str, db: Session = Depends(get_db), claims: dict 
         raise HTTPException(status_code=404, detail="Account not found")
     db.delete(acc)
     db.commit()
+
+    event = {
+    "account_id": acc.id,
+    "account_no": acc.account_no,
+    }
+    await publish_accounts_deleted(event)
 
 
 #Get current consignment number
