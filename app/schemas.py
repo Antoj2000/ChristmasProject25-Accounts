@@ -36,6 +36,9 @@ class UserRead(BaseModel):
     range_end: int
     current_con_num: int
 
+class UserEdit(BaseModel):
+    name: NameStr
+    email: EmailStr
 
 class ConRead(BaseModel):
     account_no: AccountStr

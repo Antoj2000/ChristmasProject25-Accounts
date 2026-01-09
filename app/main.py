@@ -8,7 +8,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, selectinload
 from .schemas import(
     UserCreate, UserRead,
-    ConRead
+    ConRead, UserEdit
 )
 from .models import AccountsDB, Base
 from .utils import assign_number_range
@@ -101,7 +101,7 @@ async def create_account(account: UserCreate, db: Session = Depends(get_db)):
     
 #Update existing account
 @app.put("/api/accounts/update/{account_no}", response_model=UserRead)
-def edit_account(account_no: str, payload: UserCreate, db: Session = Depends(get_db), claims: dict = Depends(get_current_account_claims)):
+def edit_account(account_no: str, payload: UserEdit, db: Session = Depends(get_db), claims: dict = Depends(get_current_account_claims)):
     token_account_no = claims.get("account_no")
     if not token_account_no or token_account_no != account_no:
         raise HTTPException(status_code=403, detail="Token not valid for this account")
