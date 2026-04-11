@@ -11,7 +11,7 @@ from .schemas import(
     ConRead, UserEdit
 )
 from .models import AccountsDB, Base
-from .utils import assign_number_range
+from .utils import assign_number_range, generate_next_account_no
 from .worker import publish_accounts_created, publish_accounts_deleted
 from .security import hash_password, get_current_account_claims
 
@@ -75,9 +75,11 @@ def get_account_by_number(account_no: str, db: Session = Depends(get_db)):
 @app.post("/api/accounts", response_model=UserRead, status_code=status.HTTP_201_CREATED)
 async def create_account(account: UserCreate, db: Session = Depends(get_db)):
     start, end = assign_number_range(db)
+    next_account_no = generate_next_account_no(db)
     acc = account.model_dump()
     plain = acc.pop("password")            
     acc["password_hash"] = hash_password(plain) 
+    acc["account_no"] = next_account_no
     acc.update({
         "range_start": start,
         "range_end": end,

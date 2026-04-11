@@ -11,7 +11,6 @@ PasswordStr = Annotated[str, StringConstraints(min_length=8, max_length=20)]
 
 class UserCreate(BaseModel):
 
-    account_no: AccountStr 
     name: NameStr
     email: EmailStr
     password: PasswordStr 
